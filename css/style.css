@@ -10,8 +10,9 @@
   --color-background-modal: hsla(0, 0%, 0%, 0.7);
 
   --fs-xl: 5rem;
-  --fs-600: 4.2rem;
-  --fs-500: 3.2rem;
+  --fs-700: 4.2rem;
+  --fs-600: 3.2rem;
+  --fs-500: 2.8rem;
   --fs-400: 1.6rem;
   --fs-300: 1.4rem;
 
@@ -19,6 +20,8 @@
   --fw-normal: 500;
 
   --br-400: 10px;
+
+  --opacity-hover: 0.7;
 }
 
 html {
@@ -36,16 +39,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Kumbh Sans", sans-serif;
+  font-size: var(--fs-400);
 }
 
 h1 {
   font-weight: 700;
-  font-size: var(--fs-600);
+  font-size: var(--fs-700);
   color: var(--color-primary);
 }
 
 p {
-  font-size: var(--fs-400);
   color: var(--color-secondary);
 }
 
@@ -57,12 +60,12 @@ p {
 .button {
   border: none;
   cursor: pointer;
+  background-color: transparent;
 }
 
 .btn {
   display: block;
   width: 100%;
-  font-size: var(--fs-300);
   font-weight: 600;
   color: white;
   background-color: var(--color--accent);
@@ -71,13 +74,35 @@ p {
 }
 
 .btn:hover {
-  opacity: 0.7;
+  opacity: var(--opacity-hover);
 }
 
 .btn svg {
   height: 17px;
   vertical-align: middle;
   margin-right: 0.8rem;
+}
+
+.quantity {
+  font-weight: var(--fw-bold);
+  background-color: var(--color-decoration);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.8rem;
+  border-radius: var(--br-400);
+}
+
+.quantity button {
+  color: var(--color--accent);
+  font-size: var(--fs-500);
+  font-weight: inherit;
+  line-height: 1;
+  padding-bottom: 0.8rem;
+}
+
+.quantity button:hover {
+  opacity: var(--opacity-hover);
 }
 
 .attribution {
