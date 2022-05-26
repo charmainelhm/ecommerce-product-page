@@ -19,6 +19,7 @@
   --fw-bold: 700;
   --fw-normal: 500;
 
+  --br-xl: 50%;
   --br-400: 10px;
 
   --opacity-hover: 0.7;
@@ -104,6 +105,94 @@ p {
 
 .quantity button:hover {
   opacity: var(--opacity-hover);
+}
+
+/* image slider */
+.slider__container {
+  width: 100%;
+  height: 90vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider__images {
+  width: 400%;
+  height: inherit;
+  display: flex;
+}
+
+.slider__images > img {
+  width: 100%;
+}
+
+.slider__controller {
+  padding-inline: 1.5rem;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.slider__btn--arrow {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--br-xl);
+  display: grid;
+  place-items: center;
+}
+
+.slider__btn--arrow svg {
+  transform: scale(0.8);
+}
+
+.slider input {
+  display: none;
+}
+
+.slider__thumbnails {
+  margin-top: 2rem;
+  display: none;
+  /* display: flex; */
+  column-gap: 1.5rem;
+}
+
+.slider__btn--thumbnail {
+  cursor: pointer;
+  width: 25%;
+  border-radius: var(--br-400);
+  background-color: var(--color--accent);
+}
+
+.slider__btn--thumbnail::after {
+  display: block;
+  content: "";
+  padding-bottom: 100%;
+}
+
+.slider__thumbnails label {
+  background-size: contain;
+}
+
+.slider__thumbnails label:hover {
+  opacity: var(--opacity-hover);
+}
+
+label[for="img1"] {
+  background-image: url(../images/image-product-1-thumbnail.jpg);
+}
+
+label[for="img2"] {
+  background-image: url(../images/image-product-2-thumbnail.jpg);
+}
+
+label[for="img3"] {
+  background-image: url(../images/image-product-3-thumbnail.jpg);
+}
+
+label[for="img4"] {
+  background-image: url(../images/image-product-4-thumbnail.jpg);
 }
 
 .attribution {
