@@ -330,6 +330,62 @@ label[for="img4"] {
   .slider__images {
     cursor: pointer;
   }
+
+  /* Image slider modal*/
+  .modal {
+    position: absolute;
+    place-items: center;
+    inset: 0;
+    display: grid;
+    background-color: var(--color-background-modal);
+  }
+
+  .disabled {
+    display: none;
+  }
+
+  .modal .slider {
+    width: 30%;
+    max-width: 550px;
+  }
+
+  .modal .slider__thumbnails {
+    width: 85%;
+    margin-inline: auto;
+  }
+
+  .modal__close-btn {
+    margin-bottom: 1rem;
+    position: relative;
+    left: 95%;
+  }
+
+  .slider-main {
+    display: grid;
+  }
+
+  .slider-main > * {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  .controller-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+  }
+
+  .modal .slider__controller {
+    z-index: 5;
+    width: auto;
+    padding: 0;
+    left: -25px;
+    right: -25px;
+  }
+
+  .modal .slider__btn--arrow {
+    width: 55px;
+    height: 55px;
+  }
 }
 
 .attribution {
