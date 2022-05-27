@@ -15,45 +15,95 @@
       href="./images/favicon-32x32.png"
     />
 
+    <script defer src="js/script.js"></script>
+
     <title>Frontend Mentor | E-commerce product page</title>
   </head>
   <body>
-    <div class="container item-content">
-      <p class="item__shop">Sneaker Company</p>
-      <h1 class="item__name">Fall Limited Edition Sneakers</h1>
-      <p class="item__detail">
-        These low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, they'll withstand everything the
-        weather can offer.
-      </p>
-      <div class="price">
-        <div class="price__current">$125.00</div>
-        <div class="price__discount-rate">50%</div>
-        <div class="price__original">$250.00</div>
-      </div>
-      <div class="dt-flex">
-        <div class="quantity">
-          <button class="button quantity__decrease">-</button>
-          <div class="quantity__value">0</div>
-          <button class="button quantity__increase">+</button>
+    <main>
+      <article class="container item-block">
+        <div class="slider">
+          <div class="slider__container">
+            <div class="slider__controller">
+              <button class="button slider__btn--arrow">
+                <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11 1 3 9l8 8"
+                    stroke="#1D2026"
+                    stroke-width="3"
+                    fill="none"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <button class="button slider__btn--arrow">
+                <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m2 1 8 8-8 8"
+                    stroke="#1D2026"
+                    stroke-width="3"
+                    fill="none"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="slider__images">
+              <img src="images/image-product-1.jpg" alt="" />
+              <img src="images/image-product-2.jpg" alt="" />
+              <img src="images/image-product-3.jpg" alt="" />
+              <img src="images/image-product-4.jpg" alt="" />
+            </div>
+          </div>
+          <input type="radio" name="radio-btn" id="img1" />
+          <input type="radio" name="radio-btn" id="img2" />
+          <input type="radio" name="radio-btn" id="img3" />
+          <input type="radio" name="radio-btn" id="img4" />
+          <div class="slider__thumbnails">
+            <label class="slider__btn--thumbnail active" for="img1"></label>
+            <label class="slider__btn--thumbnail" for="img2"></label>
+            <label class="slider__btn--thumbnail" for="img3"></label>
+            <label class="slider__btn--thumbnail" for="img4"></label>
+          </div>
         </div>
-        <button class="button btn">
-          <svg
-            width="22"
-            height="20"
-            viewBox="2 2 20 18"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
-              fill="#FFFFFF"
-              fill-rule="nonzero"
-            />
-          </svg>
-          Add to cart
-        </button>
-      </div>
-    </div>
+        <div class="item-content">
+          <p class="item__shop">Sneaker Company</p>
+          <h1 class="item__name">Fall Limited Edition Sneakers</h1>
+          <p class="item__detail">
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they'll withstand everything
+            the weather can offer.
+          </p>
+          <div class="price">
+            <div class="price__current">$125.00</div>
+            <div class="price__discount-rate">50%</div>
+            <div class="price__original">$250.00</div>
+          </div>
+          <div class="dt-flex">
+            <div class="quantity">
+              <button class="button quantity__decrease">-</button>
+              <div class="quantity__value">0</div>
+              <button class="button quantity__increase">+</button>
+            </div>
+            <button class="button btn">
+              <svg
+                width="22"
+                height="20"
+                viewBox="2 2 20 18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                  fill="#FFFFFF"
+                  fill-rule="nonzero"
+                />
+              </svg>
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </article>
+    </main>
     <footer class="attribution">
       Challenge by
       <a
