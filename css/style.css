@@ -15,6 +15,7 @@
   --fs-500: 2.8rem;
   --fs-400: 1.6rem;
   --fs-300: 1.4rem;
+  --fs-200: 0.9rem;
 
   --fw-bold: 700;
   --fw-normal: 500;
@@ -156,6 +157,92 @@ p {
   border-radius: var(--br-xl);
 }
 
+.cart-btn {
+  position: relative;
+}
+
+.cart-btn .item-counter {
+  background-color: var(--color-accent);
+  font-size: var(--fs-200);
+  font-weight: bold;
+  color: white;
+  border-radius: var(--br-400);
+  padding: 0.2rem 0.7rem;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+}
+
+.cart {
+  position: absolute;
+  z-index: 6;
+  width: 95vw;
+  max-width: 360px;
+  left: 50%;
+  top: 12%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: var(--br-400);
+  box-shadow: 0 20px 20px 2px hsla(217, 9%, 45%, 0.397);
+}
+
+.cart__heading {
+  margin: 0;
+  padding: 2rem;
+  font-size: var(--fs-400);
+  border-bottom: 2px solid var(--color-decoration);
+}
+
+.cart__list {
+  padding: 2rem;
+  margin-block: 0;
+}
+
+.cart__list > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.cart--empty {
+  display: grid;
+  place-items: center;
+  height: 100px;
+  color: var(--color-secondary);
+  font-weight: var(--fw-bold);
+}
+
+.cart__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 1rem;
+}
+
+.cart__item-img {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--br-300);
+}
+
+.cart__item-details {
+  color: var(--color-secondary);
+  min-width: 0;
+}
+
+.cart__item-details .item__name {
+  margin-block: 0 0.5rem;
+  font-size: var(--fs-400);
+  font-weight: var(--fw-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart__item-details .total {
+  margin-left: 0.5rem;
+  font-weight: var(--fw-bold);
+  color: var(--color-primary);
+}
+
 @media screen and (max-width: 899px) {
   .nav__expand-menu {
     padding-top: 0.5rem;
@@ -189,6 +276,17 @@ p {
 
   .nav__list--disabled {
     display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .nav__cart {
+    position: relative;
+  }
+
+  .cart {
+    top: 140%;
+    transform: translateX(-60%);
   }
 }
 

@@ -45,9 +45,35 @@
           </li>
         </ul>
         <div class="nav__buttons">
-          <button class="button nav__cart">
-            <img src="images/icon-cart.svg" alt="Shopping Cart" />
-          </button>
+          <div class="nav__cart">
+            <button class="button cart-btn">
+              <img src="images/icon-cart.svg" alt="Shopping Cart" />
+              <div class="item-counter">1</div>
+            </button>
+            <div class="cart">
+              <h2 class="cart__heading">Cart</h2>
+              <ul class="cart__list">
+                <div class="cart--empty disabled">Your cart is empty.</div>
+                <li class="cart__item">
+                  <img
+                    class="cart__item-img"
+                    src="images/image-product-1-thumbnail.jpg"
+                    alt=""
+                  />
+                  <div class="cart__item-details">
+                    <h3 class="item__name">Fall Limited Edition Sneakers</h3>
+                    <span class="item__price">$125.000</span>
+                    <span class="item__quantity">x 3</span>
+                    <span class="total">$375.000</span>
+                  </div>
+                  <button class="button delete-btn">
+                    <img src="images/icon-delete.svg" alt="" />
+                  </button>
+                </li>
+                <button class="button btn">Checkout</button>
+              </ul>
+            </div>
+          </div>
           <button class="button nav__user">
             <img src="images/image-avatar.png" alt="User Profile" />
           </button>
@@ -89,10 +115,10 @@
               <img src="images/image-product-4.jpg" alt="" />
             </div>
           </div>
-          <input type="radio" name="radio-btn" id="img1" />
-          <input type="radio" name="radio-btn" id="img2" />
-          <input type="radio" name="radio-btn" id="img3" />
-          <input type="radio" name="radio-btn" id="img4" />
+          <input type="radio" name="radio-btn" id="img1" value="product-1" />
+          <input type="radio" name="radio-btn" id="img2" value="product-2" />
+          <input type="radio" name="radio-btn" id="img3" value="product-3" />
+          <input type="radio" name="radio-btn" id="img4" value="product-4" />
           <div class="slider__thumbnails">
             <label class="slider__btn--thumbnail active" for="img1"></label>
             <label class="slider__btn--thumbnail" for="img2"></label>
