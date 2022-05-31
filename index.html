@@ -20,20 +20,18 @@
     <title>Frontend Mentor | E-commerce product page</title>
   </head>
   <body>
-    <header>
-      <nav class="container nav">
-        <button class="button nav__expand-menu">
+    <header class="container header">
+      <h1 class="nav__logo">
+        <a href="#"><img src="images/logo.svg" alt="Logo" /></a>
+      </h1>
+      <nav>
+        <button class="button nav__btn--toggle">
           <img src="images/icon-menu.svg" alt="Expandable menu" />
         </button>
-        <a class="nav__logo" href="#"
-          ><img src="images/logo.svg" alt="Back to home page"
-        /></a>
-        <ul class="nav__list nav__list--disabled">
-          <li class="nav__item">
-            <button class="button nav__close-menu">
-              <img src="images/icon-close.svg" alt="Close expanded menu" />
-            </button>
-          </li>
+        <ul class="nav__list nav__list--one">
+          <button class="button nav__btn--close">
+            <img src="images/icon-close.svg" alt="Close expanded menu" />
+          </button>
           <li class="nav__item">
             <a class="a nav__link" href="#">Collections</a>
           </li>
@@ -44,40 +42,42 @@
             <a class="a nav__link" href="#">Contract</a>
           </li>
         </ul>
-        <div class="nav__buttons">
-          <div class="nav__cart">
-            <button class="button cart-btn">
+        <ul class="nav__list nav__list--two">
+          <li class="nav__cart">
+            <button class="button nav__btn--cart">
               <img src="images/icon-cart.svg" alt="Shopping Cart" />
-              <div class="item-counter">1</div>
+              <div class="counter">1</div>
             </button>
-            <div class="cart">
-              <h2 class="cart__heading">Cart</h2>
+            <div class="cart disabled">
+              <h3 class="cart__heading">Cart</h3>
               <ul class="cart__list">
-                <div class="cart--empty disabled">Your cart is empty.</div>
+                <p class="cart__message">Your cart is empty.</p>
                 <li class="cart__item">
                   <img
-                    class="cart__item-img"
+                    class="cart__img"
                     src="images/image-product-1-thumbnail.jpg"
                     alt=""
                   />
-                  <div class="cart__item-details">
-                    <h3 class="item__name">Fall Limited Edition Sneakers</h3>
-                    <span class="item__price">$125.000</span>
-                    <span class="item__quantity">x 3</span>
-                    <span class="total">$375.000</span>
+                  <div class="cart__details">
+                    <h4 class="details__name">Fall Limited Edition Sneakers</h4>
+                    <span class="details__price">$125.000</span>
+                    <span class="details__quantity">x 3</span>
+                    <span class="details__total">$375.000</span>
                   </div>
-                  <button class="button delete-btn">
-                    <img src="images/icon-delete.svg" alt="" />
+                  <button class="button cart__btn--delete">
+                    <img src="images/icon-delete.svg" alt="Delete Item" />
                   </button>
                 </li>
-                <button class="button btn">Checkout</button>
+                <button class="button btn cart__btn--checkout">Checkout</button>
               </ul>
             </div>
-          </div>
-          <button class="button nav__user">
-            <img src="images/image-avatar.png" alt="User Profile" />
-          </button>
-        </div>
+          </li>
+          <li>
+            <button class="button nav__btn--profile">
+              <img src="images/image-avatar.png" alt="User Profile" />
+            </button>
+          </li>
+        </ul>
       </nav>
     </header>
     <main>
