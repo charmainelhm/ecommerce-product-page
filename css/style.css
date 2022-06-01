@@ -93,6 +93,14 @@ p {
   margin-right: 0.8rem;
 }
 
+.figure {
+  margin: 0;
+}
+
+.rounded {
+  border-radius: var(--br-300);
+}
+
 .quantity {
   font-weight: var(--fw-bold);
   background-color: var(--color-decoration);
@@ -126,16 +134,21 @@ nav,
 
 .header {
   margin-block: 2rem;
-  column-gap: 3rem;
+  column-gap: 1rem;
 }
 
 .nav__logo {
   margin: 0;
+  line-height: 0;
 }
 
 nav {
   flex-grow: 1;
   justify-content: space-between;
+}
+
+.nav__btn--toggle {
+  padding-top: 0.5rem;
 }
 
 .nav__list {
@@ -152,7 +165,6 @@ nav {
 
 .nav__link:hover {
   color: var(--color-primary);
-  padding-bottom: 4rem;
   border-bottom: 3.5px solid var(--color-accent);
 }
 
@@ -161,8 +173,9 @@ nav {
   margin-left: auto;
 }
 
-.nav__btn--profile img {
-  width: 24px;
+.nav__btn--profile img,
+.nav__btn--cart svg {
+  width: 25px;
 }
 
 .nav__btn--profile img:hover {
@@ -172,6 +185,12 @@ nav {
 
 .nav__btn--cart {
   position: relative;
+}
+
+.nav__btn--cart svg {
+  height: 25px;
+  fill: #69707d;
+  transform: translateY(2px);
 }
 
 .nav__btn--cart .counter {
@@ -186,13 +205,17 @@ nav {
   right: -4px;
 }
 
+.nav__btn--cart svg:hover {
+  fill: var(--color-primary);
+}
+
 .cart {
   position: absolute;
   z-index: 6;
   width: 95vw;
   max-width: 360px;
   left: 50%;
-  top: 12%;
+  top: 8%;
   transform: translateX(-50%);
   background-color: white;
   border-radius: var(--br-400);
@@ -241,7 +264,10 @@ nav {
 .cart__img {
   width: 50px;
   height: 50px;
-  border-radius: var(--br-300);
+}
+
+.cart__img img {
+  max-width: 100%;
 }
 
 .cart__details {
@@ -265,11 +291,6 @@ nav {
 }
 
 @media screen and (max-width: 899px) {
-  .nav__btn--toggle {
-    padding-top: 0.5rem;
-    margin-right: 1rem;
-  }
-
   .nav__list--one {
     padding: 2rem 0 0 2rem;
     position: absolute;
@@ -313,6 +334,12 @@ nav {
 }
 
 @media screen and (min-width: 900px) {
+  .header {
+    column-gap: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px solid var(--color-decoration);
+  }
+
   .nav__btn--toggle,
   .nav__btn--close {
     display: none;

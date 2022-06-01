@@ -21,14 +21,14 @@
   </head>
   <body>
     <header class="container header">
+      <button class="button nav__btn--toggle">
+        <img src="images/icon-menu.svg" alt="Expandable menu" />
+      </button>
       <h1 class="nav__logo">
         <a href="#"><img src="images/logo.svg" alt="Logo" /></a>
       </h1>
       <nav>
-        <button class="button nav__btn--toggle">
-          <img src="images/icon-menu.svg" alt="Expandable menu" />
-        </button>
-        <ul class="nav__list nav__list--one">
+        <ul class="nav__list nav__list--one nav__list--disabled">
           <button class="button nav__btn--close">
             <img src="images/icon-close.svg" alt="Close expanded menu" />
           </button>
@@ -45,19 +45,23 @@
         <ul class="nav__list nav__list--two">
           <li class="nav__cart">
             <button class="button nav__btn--cart">
-              <img src="images/icon-cart.svg" alt="Shopping Cart" />
+              <svg>
+                <use href="images/icon-cart.svg#cart"></use>
+              </svg>
               <div class="counter">1</div>
             </button>
-            <div class="cart disabled">
+            <div class="cart">
               <h3 class="cart__heading">Cart</h3>
               <ul class="cart__list">
                 <p class="cart__message">Your cart is empty.</p>
                 <li class="cart__item">
-                  <img
-                    class="cart__img"
-                    src="images/image-product-1-thumbnail.jpg"
-                    alt=""
-                  />
+                  <figure class="figure cart__img">
+                    <img
+                      class="rounded"
+                      src="images/image-product-1-thumbnail.jpg"
+                      alt=""
+                    />
+                  </figure>
                   <div class="cart__details">
                     <h4 class="details__name">Fall Limited Edition Sneakers</h4>
                     <span class="details__price">$125.000</span>
@@ -72,7 +76,7 @@
               </ul>
             </div>
           </li>
-          <li>
+          <li class="nav__profile">
             <button class="button nav__btn--profile">
               <img src="images/image-avatar.png" alt="User Profile" />
             </button>
