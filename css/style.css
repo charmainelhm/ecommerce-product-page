@@ -101,29 +101,6 @@ p {
   border-radius: var(--br-300);
 }
 
-.quantity {
-  font-weight: var(--fw-bold);
-  background-color: var(--color-decoration);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.8rem;
-  margin-block: 2rem;
-  border-radius: var(--br-400);
-}
-
-.quantity button {
-  color: var(--color-accent);
-  font-size: var(--fs-500);
-  font-weight: inherit;
-  line-height: 1;
-  padding-bottom: 0.8rem;
-}
-
-.quantity button:hover {
-  opacity: var(--opacity-hover);
-}
-
 /* Navigation Bar */
 .header,
 nav,
@@ -400,7 +377,6 @@ nav {
 .slider__thumbnails {
   margin-top: 2rem;
   display: none;
-  /* display: flex; */
   column-gap: 1.5rem;
 }
 
@@ -557,6 +533,44 @@ label[for="img4"] {
   box-shadow: 0 15px 25px 5px hsla(26, 100%, 55%, 0.2);
 }
 
+.input-quantity {
+  font-weight: var(--fw-bold);
+  background-color: var(--color-decoration);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.8rem;
+  margin-block: 2rem;
+  border-radius: var(--br-400);
+}
+
+.input-quantity button {
+  color: var(--color-accent);
+  font-size: var(--fs-500);
+  font-weight: inherit;
+  line-height: 1;
+  padding-bottom: 0.8rem;
+}
+
+.input-quantity button:hover {
+  opacity: var(--opacity-hover);
+}
+
+.quantity {
+  min-width: 0;
+  border: none;
+  text-align: center;
+  background-color: transparent;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.quantity::-webkit-inner-spin-button,
+.quantity::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 @media screen and (max-width: 599px) {
   .item-block .item-content {
     width: 90%;
@@ -592,23 +606,6 @@ label[for="img4"] {
     width: 100%;
   }
 
-  .dt-flex {
-    display: flex;
-    align-items: center;
-  }
-
-  .item-content .dt-flex {
-    column-gap: 1.5rem;
-  }
-
-  .quantity {
-    width: 40%;
-  }
-
-  .btn {
-    width: 60%;
-  }
-
   /* Image Slider */
   .item-block .slider__controller {
     display: none;
@@ -625,6 +622,22 @@ label[for="img4"] {
 
   .slider__images {
     cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .add-item {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+  }
+
+  .add-item .quantity {
+    width: 40%;
+  }
+
+  .add-item .btn {
+    width: 60%;
   }
 }
 

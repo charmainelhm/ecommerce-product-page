@@ -50,7 +50,7 @@
               </svg>
               <div class="counter">1</div>
             </button>
-            <div class="cart">
+            <div class="cart disabled">
               <h3 class="cart__heading">Cart</h3>
               <ul class="cart__list">
                 <p class="cart__message">Your cart is empty.</p>
@@ -143,13 +143,13 @@
             <div class="price__discount-rate">50%</div>
             <div class="price__original">$250.00</div>
           </div>
-          <div class="dt-flex">
-            <div class="quantity">
-              <button class="button quantity__decrease">-</button>
-              <div class="quantity__value">0</div>
-              <button class="button quantity__increase">+</button>
+          <form class="add-item">
+            <div class="input-quantity">
+              <button class="button" data-quantity="minus">-</button>
+              <input class="quantity" type="number" name="quantity" value="0" />
+              <button class="button" data-quantity="plus">+</button>
             </div>
-            <button class="button btn">
+            <button type="submit" class="button btn">
               <svg
                 width="22"
                 height="20"
@@ -164,10 +164,10 @@
               </svg>
               Add to cart
             </button>
-          </div>
+          </form>
         </div>
       </article>
-      <div class="modal disabled">
+      <div class="modal">
         <div class="slider">
           <button class="button modal__close-btn">
             <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
