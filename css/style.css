@@ -384,6 +384,7 @@ nav {
   cursor: pointer;
   width: 25%;
   border-radius: var(--br-400);
+  background-size: cover;
 }
 
 .slider__btn--thumbnail::after {
@@ -392,27 +393,34 @@ nav {
   padding-bottom: 100%;
 }
 
-.slider__thumbnails label {
+.slider__btn--thumbnail:hover {
+  opacity: var(--opacity-hover);
+}
+
+#image-01 {
+  transition: 1s;
+}
+
+/* .slider__thumbnails label {
   background-size: contain;
 }
 
 .slider__thumbnails label:hover {
-  opacity: var(--opacity-hover);
-}
+  opacity: var(--opacity-hover); */
 
-label[for="img1"] {
+.slider__btn--thumbnail[for="img1"] {
   background-image: url(../images/image-product-1-thumbnail.jpg);
 }
 
-label[for="img2"] {
+.slider__btn--thumbnail[for="img2"] {
   background-image: url(../images/image-product-2-thumbnail.jpg);
 }
 
-label[for="img3"] {
+.slider__btn--thumbnail[for="img3"] {
   background-image: url(../images/image-product-3-thumbnail.jpg);
 }
 
-label[for="img4"] {
+.slider__btn--thumbnail[for="img4"] {
   background-image: url(../images/image-product-4-thumbnail.jpg);
 }
 
