@@ -3,6 +3,19 @@
 let modalView = false;
 let imgCount = 0;
 
+const state = {
+  inventory: [
+    {
+      id: "1234",
+      product: "Fall Limited Edition Sneakers",
+      img_url: "images/image-product-1.jpg",
+      org_price: "250",
+      discount: "0.5",
+    },
+  ],
+  cart: [],
+};
+
 const navToggleBtn = document.querySelector(".nav__btn--toggle");
 const navCloseBtn = document.querySelector(".nav__btn--close");
 const expandableNav = document.querySelector(".nav__list--one");
@@ -15,6 +28,15 @@ const openModal = document.querySelector(".slider__images");
 const closeModal = document.querySelector(".modal__close-btn");
 const imgModal = document.querySelector(".modal");
 const modalController = [openModal, closeModal];
+const quantityControllers = document.querySelectorAll(".input-quantity button");
+const form = document.querySelector(".add-item");
+const quantity = document.querySelector(".quantity");
+const errorMsg = document.querySelector(".error-message");
+const cart = document.querySelector(".nav__cart");
+const cartBtn = document.querySelector(".nav__btn--cart");
+const cartList = document.querySelector(".cart__list");
+const cartDropdown = document.querySelector(".cart");
+const counter = document.querySelector(".nav__cart .counter");
 
 // Expand navigation section
 const navSectionController = function () {
@@ -67,69 +89,12 @@ const toggleModal = function () {
   console.log(modalView);
 };
 
-imgThumbnails.forEach((thumbnail) => {
-  thumbnail.addEventListener("click", toggleImage);
-});
-
-nextImgBtns.forEach((btn) => btn.addEventListener("click", goToNextImg));
-prevImgBtns.forEach((btn) => btn.addEventListener("click", goToPrevImg));
-
-modalController.forEach((button) =>
-  button.addEventListener("click", function () {
-    toggleModal();
-    resetImg();
-  })
-);
-
-imgModal.addEventListener("click", function (e) {
-  if (e.target === imgModal) {
-    toggleModal();
-    resetImg();
-  }
-});
-
-const state = {
-  inventory: [
-    {
-      id: "1234",
-      product: "Fall Limited Edition Sneakers",
-      img_url: "images/image-product-1.jpg",
-      org_price: "250",
-      discount: "0.5",
-    },
-  ],
-  cart: [],
-};
-
-navToggleBtn.addEventListener("click", navSectionController);
-navCloseBtn.addEventListener("click", navSectionController);
-
-const quantityControllers = document.querySelectorAll(".input-quantity button");
-const quantity = document.querySelector(".quantity");
-const errorMsg = document.querySelector(".error-message");
-
 const updateQuantity = function (e) {
   const action = e.target.dataset.quantity;
   if (action === "minus" && quantity.value !== "0") quantity.value--;
   if (action === "plus") quantity.value++;
   if (quantity.value > 0) errorMsg.textContent = "";
 };
-
-quantityControllers.forEach((button) =>
-  button.addEventListener("click", updateQuantity)
-);
-
-const cart = document.querySelector(".nav__cart");
-const cartBtn = document.querySelector(".nav__btn--cart");
-const cartDropdown = document.querySelector(".cart");
-const counter = document.querySelector(".nav__cart .counter");
-
-cartBtn.addEventListener("click", function () {
-  cartDropdown.classList.toggle("disabled");
-});
-
-const form = document.querySelector(".add-item");
-const cartList = document.querySelector(".cart__list");
 
 const locateInInventory = function (addedItem) {
   const item = state.inventory.find((item) => item.id === addedItem.productId);
@@ -211,6 +176,38 @@ const updateCart = function () {
 const resetForm = function () {
   quantity.value = 0;
 };
+
+imgThumbnails.forEach((thumbnail) => {
+  thumbnail.addEventListener("click", toggleImage);
+});
+
+nextImgBtns.forEach((btn) => btn.addEventListener("click", goToNextImg));
+prevImgBtns.forEach((btn) => btn.addEventListener("click", goToPrevImg));
+
+modalController.forEach((button) =>
+  button.addEventListener("click", function () {
+    toggleModal();
+    resetImg();
+  })
+);
+
+imgModal.addEventListener("click", function (e) {
+  if (e.target === imgModal) {
+    toggleModal();
+    resetImg();
+  }
+});
+
+navToggleBtn.addEventListener("click", navSectionController);
+navCloseBtn.addEventListener("click", navSectionController);
+
+quantityControllers.forEach((button) =>
+  button.addEventListener("click", updateQuantity)
+);
+
+cartBtn.addEventListener("click", function () {
+  cartDropdown.classList.toggle("disabled");
+});
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
