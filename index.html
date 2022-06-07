@@ -43,18 +43,18 @@
           </li>
         </ul>
         <ul class="nav__list nav__list--two">
-          <li class="nav__cart">
+          <li class="nav__cart cart--empty">
             <button class="button nav__btn--cart">
               <svg>
                 <use href="images/icon-cart.svg#cart"></use>
               </svg>
-              <div class="counter">1</div>
+              <div class="counter"></div>
             </button>
             <div class="cart disabled">
               <h3 class="cart__heading">Cart</h3>
               <ul class="cart__list">
                 <p class="cart__message">Your cart is empty.</p>
-                <li class="cart__item">
+                <!-- <li class="cart__item">
                   <figure class="figure cart__img">
                     <img
                       class="rounded"
@@ -70,10 +70,10 @@
                   </div>
                   <button class="button cart__btn--delete">
                     <img src="images/icon-delete.svg" alt="Delete Item" />
-                  </button>
-                </li>
-                <button class="button btn cart__btn--checkout">Checkout</button>
+                  </button> 
+                </li> -->
               </ul>
+              <div class="checkout-wrapper"><button class="button btn cart__btn--checkout">Checkout</button></div>
             </div>
           </li>
           <li class="nav__profile">
@@ -155,11 +155,13 @@
             <div class="price__discount-rate">50%</div>
             <div class="price__original">$250.00</div>
           </div>
-          <form class="add-item">
+          <form novalidate class="add-item">
+            <input name="productId" type="hidden" value="1234">
             <div class="input-quantity">
-              <button class="button" data-quantity="minus">-</button>
-              <input class="quantity" type="number" name="quantity" value="0" />
-              <button class="button" data-quantity="plus">+</button>
+              <button type="button" class="button" data-quantity="minus">-</button>
+              <input readonly class="quantity" type="number" name="quantity" value= "0" min="1" />
+              <button type="button" class="button" data-quantity="plus">+</button>
+              <p class="error-message"></p>
             </div>
             <button type="submit" class="button btn">
               <svg

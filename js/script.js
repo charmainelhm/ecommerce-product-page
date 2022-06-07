@@ -88,5 +88,126 @@ imgModal.addEventListener("click", function (e) {
   }
 });
 
+const state = {
+  inventory: [
+    {
+      id: "1234",
+      product: "Fall Limited Edition Sneakers",
+      img_url: "images/image-product-1.jpg",
+      org_price: "250",
+      discount: "0.5",
+    },
+  ],
+  cart: [],
+};
+
 navToggleBtn.addEventListener("click", navSectionController);
 navCloseBtn.addEventListener("click", navSectionController);
+
+const quantityControllers = document.querySelectorAll(".input-quantity button");
+const quantity = document.querySelector(".quantity");
+const errorMsg = document.querySelector(".error-message");
+
+const updateQuantity = function (e) {
+  const action = e.target.dataset.quantity;
+  if (action === "minus" && quantity.value !== "0") quantity.value--;
+  if (action === "plus") quantity.value++;
+  if (quantity.value > 0) errorMsg.textContent = "";
+};
+
+quantityControllers.forEach((button) =>
+  button.addEventListener("click", updateQuantity)
+);
+
+const cart = document.querySelector(".nav__cart");
+const cartBtn = document.querySelector(".nav__btn--cart");
+const cartDropdown = document.querySelector(".cart");
+const counter = document.querySelector(".nav__cart .counter");
+
+cartBtn.addEventListener("click", function () {
+  cartDropdown.classList.toggle("disabled");
+});
+
+const form = document.querySelector(".add-item");
+const cartList = document.querySelector(".cart__list");
+
+const locateInInventory = function (addedItem) {
+  const item = state.inventory.find((item) => item.id === addedItem.productId);
+  return item;
+};
+
+const addItemToCart = function (inventoryItem, addedItem) {
+  const index = state.cart.findIndex(
+    (item) => item.product === inventoryItem.product
+  );
+
+  if (index > -1) {
+    state.cart[index].qty += Number(addedItem.quantity);
+    return;
+  }
+
+  const newCartItem = {
+    product: inventoryItem.product,
+    img_url: inventoryItem.img_url,
+    org_price: Number(inventoryItem.org_price),
+    discount: Number(inventoryItem.discount),
+    qty: Number(addedItem.quantity),
+  };
+
+  state.cart.push(newCartItem);
+};
+
+const updateCart = function () {
+  cartList.innerHTML = "";
+  state.cart.forEach((item) => {
+    const markup = `
+            <li class="cart__item">
+              <figure class="figure cart__img">
+                <img
+                  class="rounded"
+                  src=${item.img_url}
+                  alt=""
+                />
+              </figure>
+              <div class="cart__details">
+                <h4 class="details__name">${item.product}</h4>
+                <span class="details__price">$ ${(
+                  item.org_price * item.discount
+                ).toFixed(2)}</span>
+                <span class="details__quantity">x ${item.qty}</span>
+                <span class="details__total">$ ${(
+                  item.org_price *
+                  item.discount *
+                  item.qty
+                ).toFixed(2)}</span>
+              </div>
+              <button class="button cart__btn--delete">
+                <img src="images/icon-delete.svg" alt="Delete Item" />
+              </button>
+            </li>
+      `;
+
+    cart.classList.remove("cart--empty");
+    counter.innerHTML = `${state.cart.length}`;
+    cartList.insertAdjacentHTML("afterbegin", markup);
+  });
+};
+
+const resetForm = function () {
+  quantity.value = 0;
+};
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (!quantity.validity.valid) {
+    errorMsg.textContent = "Minimum quantiy should be 1!";
+    return;
+  }
+  const formData = new FormData(e.target);
+  const addedItem = Object.fromEntries(formData);
+  const inventoryItem = locateInInventory(addedItem);
+
+  addItemToCart(inventoryItem, addedItem);
+  updateCart();
+  resetForm();
+});
