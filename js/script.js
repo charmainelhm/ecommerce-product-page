@@ -147,6 +147,7 @@ const addItemToCart = function (inventoryItem, addedItem) {
   }
 
   const newCartItem = {
+    id: inventoryItem.id,
     product: inventoryItem.product,
     img_url: inventoryItem.img_url,
     org_price: Number(inventoryItem.org_price),
@@ -157,11 +158,25 @@ const addItemToCart = function (inventoryItem, addedItem) {
   state.cart.push(newCartItem);
 };
 
+const deleteItemFromCart = function (button) {
+  const id = button.closest(".cart__item").dataset.id;
+  const index = state.cart.findIndex((item) => item.id === id);
+
+  state.cart.splice(index, 1);
+  updateCart();
+};
+
 const updateCart = function () {
   cartList.innerHTML = "";
+  if (state.cart.length === 0) {
+    cart.classList.add("cart--empty");
+    const markup = `<p class="cart__message">Your cart is empty.</p>`;
+    cartList.insertAdjacentHTML("afterbegin", markup);
+    return;
+  }
   state.cart.forEach((item) => {
     const markup = `
-            <li class="cart__item">
+            <li class="cart__item" data-id="${item.id}">
               <figure class="figure cart__img">
                 <img
                   class="rounded"
@@ -181,7 +196,7 @@ const updateCart = function () {
                   item.qty
                 ).toFixed(2)}</span>
               </div>
-              <button class="button cart__btn--delete">
+              <button onclick="deleteItemFromCart(this)" class="button cart__btn--delete">
                 <img src="images/icon-delete.svg" alt="Delete Item" />
               </button>
             </li>
