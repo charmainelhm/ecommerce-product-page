@@ -29,9 +29,11 @@
       </h1>
       <nav>
         <ul class="nav__list nav__list--one nav__list--disabled">
-          <button class="button nav__btn--close">
-            <img src="images/icon-close.svg" alt="Close expanded menu" />
-          </button>
+          <li>
+            <button class="button nav__btn--close">
+              <img src="images/icon-close.svg" alt="Close expanded menu" />
+            </button>
+          </li>
           <li class="nav__item">
             <a class="a nav__link" href="#">Collections</a>
           </li>
@@ -48,12 +50,14 @@
               <svg>
                 <use href="images/icon-cart.svg#cart"></use>
               </svg>
-              <div class="counter"></div>
+              <span class="counter"></span>
             </button>
             <div class="cart disabled">
               <h3 class="cart__heading">Cart</h3>
               <ul class="cart__list">
-                <p class="cart__message">Your cart is empty.</p>
+                <li>
+                  <p class="cart__message">Your cart is empty.</p>
+                </li>
                 <!-- <li class="cart__item">
                   <figure class="figure cart__img">
                     <img
@@ -122,29 +126,25 @@
           <div class="slider__thumbnails">
             <button
               class="button slider__btn--thumbnail active"
-              for="img1"
               data-img-value="0"
             ></button>
             <button
               class="button slider__btn--thumbnail"
-              for="img2"
               data-img-value="1"
             ></button>
             <button
               class="button slider__btn--thumbnail"
-              for="img3"
               data-img-value="2"
             ></button>
             <button
               class="button slider__btn--thumbnail"
-              for="img4"
               data-img-value="3"
             ></button>
           </div>
         </div>
         <div class="item-content">
           <p class="item__shop">Sneaker Company</p>
-          <h1 class="item__name">Fall Limited Edition Sneakers</h1>
+          <h2 class="item__name">Fall Limited Edition Sneakers</h2>
           <p class="item__detail">
             These low-profile sneakers are your perfect casual wear companion.
             Featuring a durable rubber outer sole, they'll withstand everything
@@ -237,22 +237,18 @@
           <div class="slider__thumbnails">
             <button
               class="button slider__btn--thumbnail active"
-              for="img1"
               data-img-value="0"
             ></button>
             <button
               class="button slider__btn--thumbnail"
-              for="img2"
               data-img-value="1"
             ></button>
             <button
               class="button slider__btn--thumbnail"
-              for="img3"
               data-img-value="2"
             ></button>
             <button
               class="button slider__btn--thumbnail"
-              for="img4"
               data-img-value="3"
             ></button>
           </div>

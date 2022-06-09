@@ -135,7 +135,7 @@ const updateCart = function () {
   cartList.innerHTML = "";
   if (state.cart.length === 0) {
     cart.classList.add("cart--empty");
-    const markup = `<p class="cart__message">Your cart is empty.</p>`;
+    const markup = `<li><p class="cart__message">Your cart is empty.</p></li>`;
     cartList.insertAdjacentHTML("afterbegin", markup);
     return;
   }
